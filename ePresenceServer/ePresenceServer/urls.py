@@ -19,10 +19,9 @@ from django.conf.urls import url, include
 from app import views
 
 urlpatterns = [
-    url(r'^', views.login, name='login'),
-    url(r'^login', views.login, name='login'),
-    url(r'^login', views.login, name='login'),
+    url(r'^login/', views.login, name='login'),
+    url(r'^home/', views.home, name='home'),
     path('admin/', admin.site.urls),
-	#path(r'^api-auth/', include('rest_framework.urls'))
+	url(r'^api-auth/', include('rest_framework.urls'))
 
 ]
