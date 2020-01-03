@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class aula(models.Model):
+class Aula(models.Model):
     personas = models.IntegerField()
     #Estado= 0:verde 1:amarillo 2:rojo
     estado = models.IntegerField()
