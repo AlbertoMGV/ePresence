@@ -16,4 +16,9 @@ def login(request):
     return render(request, 'login.html')
 
 def home(request):
-    return render(request, 'home.html')
+	aulas = Aula.objects.all()
+	return render(request, 'home.html', {'aulas': aulas})
+
+def aula(request, id):
+	aula = Aula.objects.get(id=id)
+	return render(request, 'aula.html', {'aula': aula})

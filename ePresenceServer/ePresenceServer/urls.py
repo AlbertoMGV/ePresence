@@ -26,5 +26,6 @@ urlpatterns = [
     url(r'^home/', views.home, name='home'),
     path('admin/', admin.site.urls),
 	url(r'^api/', include(aula_resource.urls)),
+    url(r'^aula/(\d+)/$', views.aula, name='aula'),
 
 ]
