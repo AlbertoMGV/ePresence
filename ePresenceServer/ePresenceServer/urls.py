@@ -28,4 +28,11 @@ urlpatterns = [
 	url(r'^api/', include(aula_resource.urls)),
     url(r'^aula/(\d+)/$', views.aula, name='aula'),
 
+    url(r'^aulaAdd/(\d+)/$', views.aula_p_add, name='aula_add'),
+    url(r'^aulaRemove/(\d+)/$', views.aula_p_remove, name='aula_remove'),
+
+    url(r'^aulaVerde/(\d+)/$', views.aula_e_verde, name='aula_s_verde'),
+    url(r'^aulaAmarillo/(\d+)/$', views.aula_e_amarillo, name='aula_s_amarillo'),
+    url(r'^aulaRojo/(\d+)/$', views.aula_e_rojo, name='aula_s_rojo'),
+
 ]

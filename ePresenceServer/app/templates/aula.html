@@ -104,17 +104,26 @@
 
             <div class="col-md-3 col-sm-3  tile_stats_count">
               <span class="count_top"><i class="fa fa-info-circle"></i> Estado </span>
-              <div class="count">{{ aula.estado }}</div>
+              {% if aula.estado == 2 %}
+                <div class="count red">Cerrado</div>
+              {% endif %}
+              {% if aula.estado == 1 %}
+                <div class="count warning">Ocupado</div>
+              {% endif %}
+              {% if aula.estado == 0 %}
+                <div class="count green">Abierto</div>
+              {% endif %}
+              
             </div>
 
             <div class="col-md-3 col-sm-3  tile_stats_count">
               <span class="count_top"><i class="fa fa-clock-o"></i> Hora Apertura</span>
-              <div class="count green">{{ aula.hora_in }}</div>
+              <div class="count">{{ aula.hora_in }}</div>
             </div>
 
             <div class="col-md-3 col-sm-3 tile_stats_count">
               <span class="count_top"><i class="fa fa-clock-o"></i> Hora Cierre</span>
-              <div class="count red">{{ aula.hora_out }}</div>
+              <div class="count">{{ aula.hora_out }}</div>
             </div>
 
           </div>
