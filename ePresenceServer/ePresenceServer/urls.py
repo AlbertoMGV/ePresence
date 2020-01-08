@@ -17,12 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
 from app import views
+from app.resources import AulaResource
+
+aula_resource = AulaResource()
 
 urlpatterns = [
     url(r'^login/', views.login, name='login'),
     url(r'^home/', views.home, name='home'),
     path('admin/', admin.site.urls),
-	url(r'^api-auth/', include('rest_framework.urls')),
-	url(r'^getAula', views.getAula, name='getAula'),
+	url(r'^api/', include(aula_resource.urls)),
 
 ]

@@ -6,9 +6,8 @@ import requests
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
-from app.models import *
-from django.core import serializers
-from app.serializers import * 
+from app.models import Aula
+from django.core import serializers 
 import json
 
 # Create your views here.
@@ -18,15 +17,3 @@ def login(request):
 
 def home(request):
     return render(request, 'home.html')
-
-@api_view(["POST"])
-def getAula(request):
-	if request.method == 'POST':
-		uid = request.data.get('aula_id')
-		try:
-			res = Aula.objects.all()
-			res_ser = AulaSerializer(res, many=True)
-			aaa = json.loads(res_ser.data)
-			return Response({"result":"ok"}, status=HTTP_200_OK)
-		except:
-			return Response({'result': "not ok"}, status=HTTP_401_UNAUTHORIZED)
