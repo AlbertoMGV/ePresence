@@ -46,16 +46,22 @@ def check():
 	h_out = datetime.strptime(testJson['hora_out'],'%H:%M:%S').time()
 	h_act = datetime.now().time()
 
-	#if h_out > h_in:
-    	#	if h_act > h_in and h_act < h_out:
-        #		aula_estado(0)
-    	#	else:
-        #		aula_estado(2)
-	#else:
-    	#	if h_act > h_in or h_act < h_out:
-        #		aula_estado(0)
-    	#	else:
-        #		aula_estado(2)
+	if h_out > h_in:
+		if h_act > h_in and h_act < h_out:
+			if testJson['personas']==0:
+				aula_estado(0)
+			else:
+				aula_estado(1)
+		else:
+			aula_estado(2)
+	else:
+		if h_act > h_in or h_act < h_out:
+			if testJson['personas']==0:
+				aula_estado(0)
+			else:
+				aula_estado(1)
+		else:
+			aula_estado(2)
 
 def update():
 	global estado
