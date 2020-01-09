@@ -100,4 +100,4 @@ def aula_estado(st):
 while True:
 	check()
 	update()
-	time.sleep(4)
+#	time.sleep(1)
