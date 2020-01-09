@@ -1,6 +1,6 @@
 import time
 from grove.grove_led import GroveLed
-#from grove.grove_button import GroveButton
+from grove.grove_button import GroveButton
 import requests
 from io import BytesIO
 import json
@@ -21,17 +21,18 @@ ledR = GroveLed(18)
 
 #Set Buttons
 
-#btn_in = GroveButton(22)
-#btn_out = GroveButton(24)
+btn_in = GroveButton(22)
+btn_out = GroveButton(24)
 
 def on_press_in(t):
 	aula_add()
+	print('ojo que entro')
 
 def on_press_out(t):
 	aula_remove()
 
-#btn_in.on_press = on_press_in
-#btn_out.on_press = on_press_out
+btn_in.on_press = on_press_in
+btn_out.on_press = on_press_out
 
 #Functions
 
