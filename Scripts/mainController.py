@@ -1,14 +1,19 @@
 import time
 from grove.grove_led import GroveLed
-from grove.grove_button import GroveButton
+#from grove.grove_button import GroveButton
+import requests
+from io import BytesIO
+import json
+from datetime import datetime
 
-estado = 0;
+estado = 69
+
 
 #Set leds
 
 ledV = GroveLed(5)
 ledA = GroveLed(16)
-ledR = GroveLEd(18)
+ledR = GroveLed(18)
 
 #Set "cerradura"
 
@@ -16,8 +21,8 @@ ledR = GroveLEd(18)
 
 #Set Buttons
 
-btn_in = GroveButton(22)
-btn_out = GroveButton(24)
+#btn_in = GroveButton(22)
+#btn_out = GroveButton(24)
 
 def on_press_in(t):
 	aula_add()
@@ -25,17 +30,35 @@ def on_press_in(t):
 def on_press_out(t):
 	aula_remove()
 
-btn_in.on_press = on_press_in
-btn_out.on_press = on_press_out
+#btn_in.on_press = on_press_in
+#btn_out.on_press = on_press_out
 
 #Functions
 
 def check():
-	#request to web
-	#comparar el estado que viene con el que estaba para no petar a peticiones la api
-	#si la hora no esta entre las dos de in y out cambiar stado "aula_stado(estado)"
+	res = requests.get('http://localhost:8000/api/Aula/1/')
+	testJson = json.loads(res.text)
+	global estado
+	if estado!=testJson['estado']:
+		estado = testJson['estado']
+
+	h_in = datetime.strptime(testJson['hora_in'],'%H:%M:%S').time()
+	h_out = datetime.strptime(testJson['hora_out'],'%H:%M:%S').time()
+	h_act = datetime.now().time()
+
+	#if h_out > h_in:
+    	#	if h_act > h_in and h_act < h_out:
+        #		aula_estado(0)
+    	#	else:
+        #		aula_estado(2)
+	#else:
+    	#	if h_act > h_in or h_act < h_out:
+        #		aula_estado(0)
+    	#	else:
+        #		aula_estado(2)
 
 def update():
+	global estado
 	if estado == 0:
 		ledV.on()
 		ledA.off()
@@ -53,17 +76,22 @@ def update():
 		#bloquear puerta
 
 def aula_add():
-	#request a url 
+	requests.get('http://localhost:8000/aulaAdd/1/')
 
 def aula_remove():
-	#request a url
+	requests.get('http://localhost:8000/aulaRemove/1/')
 
 def aula_estado(st):
-	#request a url
+	if st==0:
+		requests.get('http://localhost:8000/aulaVerde/1/')
+	elif st==1:
+		requests.get('http://localhost:8000/aulaAmarillo/1/')
+	elif st==2:
+		requests.get('http://localhost:8000/aulaRojo/1/')
 
 #Main Program
 
 while True:
 	check()
 	update()
-	time.sleep(1)
+	time.sleep(4)
