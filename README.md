@@ -4,7 +4,7 @@
 ## Tabla de Contenidos
 
 * [Sobre el proyecto](#sobre-el-proyecto)
-  * [Hecho con](#hecho-con
+  * [Hecho con](#hecho-con)
 * [Documentación](#documentación)
 * [Contribuidores](#contribuidores)
 * [Créditos](#creditos)
