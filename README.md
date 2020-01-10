@@ -101,7 +101,28 @@ def aula_estado(st):
 ```
 Donde aula_estado(0) sería para el verde, aula_estado(1) para el amarillo y aula_estado(2) para el rojo.
 
-En cuanto al método update(),
+En cuanto al método update(), actualiza constantemente el estado de los leds comprobando el estado del aula ( aula_estado() ) y dependiendo del estado del aula enciende su led correspondiente.
+
+```python
+def update():
+	global estado
+	if estado == 0:
+		ledV.on()
+		ledA.off()
+		ledR.off()
+		#abrir puerta
+	elif estado == 1:
+		ledV.off()
+		ledA.on()
+		ledR.off()
+		#abrir puerta
+	elif estado == 2:
+		ledV.off()
+		ledA.off()
+		ledR.on()
+		#bloquear puerta
+```
+
 ## Credits
 
 - Gracias al template [ Gentelella ](https://github.com/ColorlibHQ/gentelella) by ColorlibHQ.
