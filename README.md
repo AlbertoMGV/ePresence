@@ -17,12 +17,13 @@ ePresence es un sistema IoT para gestionar las aulas de cualquier centro de estu
 
 ### Built With
 * [DjangoRest](https://www.django-rest-framework.org/) - Serverside
-* mas cositis
+* [Grove Base Hat for Raspberry Pi](http://wiki.seeedstudio.com/Grove_Base_Hat_for_Raspberry_Pi/) - Hardware
 
 <!-- CONTRIBUTORS -->
 ## Contributors
 
-By Alberto Miranda & Iñigo de Mingo
+* **Alberto Miranda**	-	*alberto.miranda@opendeusto.es*	-	[@AlbertoMGV](https://github.com/AlbertoMGV)
+* **Iñigo de Mingo**	-	*inigo.demingo@opendeusto.es*	-	[@InigodeMingo](https://github.com/InigodeMingo)
 
 
 <!-- GETTING STARTED -->
@@ -32,7 +33,7 @@ By Alberto Miranda & Iñigo de Mingo
 
 ## Credits
 
-- gracias altemplate [ Gentelella ](https://github.com/ColorlibHQ/gentelella) by ColorlibHQ.
+- Gracias al template [ Gentelella ](https://github.com/ColorlibHQ/gentelella) by ColorlibHQ.
 
 
 
