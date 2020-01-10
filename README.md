@@ -31,9 +31,9 @@ ePresence es un sistema IoT para gestionar las aulas de cualquier centro de estu
 ## Usage
 
 ### Server
-### Hardware
+### IoT
 
-En cuanto al hardware, hemos utilizado una Raspberry Pi 3 junto con una Grove Base Hat que nos permite añadir varios componentes como los LED Sockets que hemos utilizado para hacer un semáforo.
+En cuanto al hardware, hemos utilizado una Raspberry Pi 3 junto con una Grove Base Hat que nos permite añadir varios componentes como tres LED Sockets que hemos utilizado para hacer un semáforo y dos botones que hemos utilizado para sumar y restar en el contador de personas.
 
 Para hacer uso de los componentes así como desarrollar sus funcionalidades, hemos creado la clase mainController en lenguaje python donde hemos desarrollado todo el código para poder hacer uso del hardware. 
 
@@ -43,6 +43,22 @@ Hemos inicializado 3 leds uno para cada color del semáforo (ledV, ledA y ledR) 
 ledV = GroveLed(5)
 ledA = GroveLed(16)
 ledR = GroveLed(18)
+```
+
+También hemos inicializado los 2 botones, uno tiene el método de añadir una persona y el otro de restar una persona
+
+```python
+btn_in = GroveButton(22)
+btn_out = GroveButton(24)
+
+def on_press_in(t):
+	aula_add()
+
+def on_press_out(t):
+	aula_remove()
+
+btn_in.on_press = on_press_in
+btn_out.on_press = on_press_out
 ```
 
 El probrama principal se basa en un bucle de los métodos check() y update() que explicaremos a continuación.
