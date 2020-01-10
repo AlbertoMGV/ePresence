@@ -26,7 +26,6 @@ btn_out = GroveButton(24)
 
 def on_press_in(t):
 	aula_add()
-	print('ojo que entro')
 
 def on_press_out(t):
 	aula_remove()
@@ -101,4 +100,4 @@ def aula_estado(st):
 while True:
 	check()
 	update()
-#	time.sleep(1)
+	time.sleep(1)
