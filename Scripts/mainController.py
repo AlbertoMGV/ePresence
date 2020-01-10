@@ -5,9 +5,11 @@ import requests
 from io import BytesIO
 import json
 from datetime import datetime
+#from mraa import getGpioLookup
+#from upm import pyupm_buzzer as umpBuzzer
+
 
 estado = 69
-
 
 #Set leds
 
@@ -25,7 +27,21 @@ btn_in = GroveButton(22)
 btn_out = GroveButton(24)
 
 def on_press_in(t):
+#	global upmBuzzer
 	aula_add()
+#	from grove import helper
+#	from grove.helper import helper
+#	helper.root_check()
+#	pin = 12
+
+    # Create the buzzer object using RaspberryPi GPIO12
+#	mraa_pin = getGpioLookup("GPIO%02d" % pin)
+#	buzzer = upmBuzzer.Buzzer(mraa_pin)
+#	print(buzzer.name())
+
+#	buzzer.playSound(upm.BUZZER_DO, 500000)
+#	time.sleep(1)
+#	del buzzer
 
 def on_press_out(t):
 	aula_remove()
