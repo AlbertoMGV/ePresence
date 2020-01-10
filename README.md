@@ -25,6 +25,59 @@ ePresence es un sistema IoT para gestionar las aulas de cualquier centro de estu
 ## Documentación
 
 ### Server
+
+El backend del servidor web, que tambien esta corriendo en la Raspberry, aunque no es la decisión más óptima. Lo hemos desarrollado con Django todo ello en Python. El servidor unicamente se encarga de recibir los datos y guardarlos en la base de datos, así como mostrarlos en un web para la comodidad de los usuarios.
+
+Bueno dando por sabidos los conocimientos básicos de Django, hemos creado las 3 views necesarias para la web, es decir el *Login*, *Home* y *Aula*. Las cuales cargan los datos respectivos a cada una. Por otro lado con [DJango RestFrameWork](https://www.django-rest-framework.org/), nos crea las urls necesarias para cada aula, en las que nos devolvera un JSON con todos los datos del aula elegida.
+
+```python
+def login(request):
+    return render(request, 'login.html')
+
+def home(request):
+	aulas = Aula.objects.all()
+	return render(request, 'home.html', {'aulas': aulas})
+
+def aula(request, id):
+	aula = Aula.objects.get(id=id)
+	return render(request, 'aula.html', {'aula': aula})
+```
+
+Hemos creado 5 Views especiales para gestionar los datos, entre ellas *aulaAdd* y *aulaRemove* para añadir y quitar una persona respectivamente de las aulas y los metodos *aulaVerde*, *aulaAmarillo* y *aulaRojo* para cambiar entre estados de las aulas. En las 5 VIews hay que añadir un slash y el numero del aula, para que elegir el aula.
+
+```python
+def aula_p_add(request, id):
+	aula = Aula.objects.get(id=id)
+	aula.personas = aula.personas+1
+	aula.save()
+	return HttpResponse('ok')
+
+def aula_p_remove(request, id):
+	aula = Aula.objects.get(id=id)
+	aula.personas = aula.personas-1
+	aula.save()
+	return HttpResponse('ok')
+
+def aula_e_verde(request, id):
+	aula = Aula.objects.get(id=id)
+	aula.estado = 0
+	aula.save()
+	return HttpResponse('ok')
+
+def aula_e_rojo(request, id):
+	aula = Aula.objects.get(id=id)
+	aula.estado = 2
+	aula.save()
+	return HttpResponse('ok')
+
+def aula_e_amarillo(request, id):
+	aula = Aula.objects.get(id=id)
+	aula.estado = 1
+	aula.save()
+	return HttpResponse('ok')
+
+```
+
 ### IoT
 
 En cuanto al hardware, hemos utilizado una Raspberry Pi 3 junto con una Grove Base Hat que nos permite añadir varios componentes como tres LED Sockets que hemos utilizado para hacer un semáforo y dos botones que hemos utilizado para sumar y restar en el contador de personas.
