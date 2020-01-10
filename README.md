@@ -31,7 +31,7 @@ ePresence es un sistema IoT para gestionar las aulas de cualquier centro de estu
 ## Usage
 
 ### Server
-### Hardware
+### IoT
 
 En cuanto al hardware, hemos utilizado una Raspberry Pi 3 junto con una Grove Base Hat que nos permite añadir varios componentes como tres LED Sockets que hemos utilizado para hacer un semáforo y dos botones que hemos utilizado para sumar y restar en el contador de personas.
 
