@@ -1,34 +1,28 @@
 ﻿# ePresence 🎓
 
 <!-- TABLE OF CONTENTS -->
-## Table of Contents
+## Tabla de Contenidos
 
-* [About the Project](#about-the-project)
-  * [Built With](#built-with)
-* [Contributors](#contributors)
-* [Usage](#usage)
-* [Contact](#contact)
+* [Sobre el proyecto](#sobre-el-proyecto)
+  * [Hecho con](#hecho-con
+* [Documentación](#documentación)
+* [Contribuidores](#contribuidores)
+* [Créditos](#creditos)
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## Sobre el proyecto
 
 ePresence es un sistema IoT para gestionar las aulas de cualquier centro de estudios. Consiste en saber cuántas personas entran, permanecen y salen del aula a tiempo real, así sabremos si una clase está ocupada o libre. Mediante un semáforo led sabremos si la clase está abierta (verde), ocupada (amarillo) o cerrada (rojo). Para saber si una clase esta cerrada bastará con saber si está fuera del horario establecido a ese aula.
 
 
-### Built With
+### Hecho con
 * [DjangoRest](https://www.django-rest-framework.org/) - Serverside
 * [Grove Base Hat for Raspberry Pi](http://wiki.seeedstudio.com/Grove_Base_Hat_for_Raspberry_Pi/) - Hardware
-
-<!-- CONTRIBUTORS -->
-## Contributors
-
-* **Alberto Miranda**	-	*alberto.miranda@opendeusto.es*	-	[@AlbertoMGV](https://github.com/AlbertoMGV)
-* **Iñigo de Mingo**	-	*inigo.demingo@opendeusto.es*	-	[@InigodeMingo](https://github.com/InigodeMingo)
-
+* [Raspberry Pi 3 Model B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) - Hardware
 
 <!-- GETTING STARTED -->
-## Usage
+## Documentación
 
 ### Server
 ### IoT
@@ -139,7 +133,13 @@ def update():
 		#bloquear puerta
 ```
 
-## Credits
+<!-- CONTRIBUTORS -->
+## Contribuidores
+
+* **Alberto Miranda**	-	*alberto.miranda@opendeusto.es*	-	[@AlbertoMGV](https://github.com/AlbertoMGV)
+* **Iñigo de Mingo**	-	*inigo.demingo@opendeusto.es*	-	[@InigodeMingo](https://github.com/InigodeMingo)
+
+## Creditos
 
 - Gracias al template [ Gentelella ](https://github.com/ColorlibHQ/gentelella) by ColorlibHQ.
 
